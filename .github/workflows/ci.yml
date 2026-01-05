@@ -18,7 +18,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-14]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: dtolnay/rust-toolchain@stable
     - run: rustc --print=cfg
     - run: cargo build --verbose
@@ -27,7 +27,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: dtolnay/rust-toolchain@stable
       with:
         components: clippy
@@ -37,7 +37,7 @@ jobs:
   doc:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: dtolnay/rust-toolchain@stable
     - run: cargo doc --no-deps --workspace --verbose
 
@@ -47,7 +47,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-14]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: dtolnay/rust-toolchain@stable
     - run: rustc --print=cfg
     - run: cargo test --verbose           --workspace
@@ -56,7 +56,7 @@ jobs:
   tests-wasm-node:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: dtolnay/rust-toolchain@stable
     - uses: actions/setup-node@v4
       with:
@@ -68,7 +68,7 @@ jobs:
   tests-wasm-browser:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: dtolnay/rust-toolchain@stable
     - run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
     - uses: browser-actions/setup-firefox@v1
@@ -83,7 +83,7 @@ jobs:
   miri:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - uses: dtolnay/rust-toolchain@nightly
       with:
         components: miri,rust-src
