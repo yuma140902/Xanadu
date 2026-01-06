@@ -73,7 +73,7 @@ jobs:
     - run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
     - uses: browser-actions/setup-firefox@v1
     - run: firefox --version
-    - uses: browser-actions/setup-chrome@v1
+    - uses: browser-actions/setup-chrome@v2
     - run: chrome --version
     - run: wasm-pack test --headless --firefox           -- --workspace --features test_in_browser --features benchmark/test_in_browser --verbose
     - run: wasm-pack test --headless --firefox --release -- --workspace --features test_in_browser --features benchmark/test_in_browser --verbose
